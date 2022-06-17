@@ -1,0 +1,56 @@
+<!-- html は全体をhtmlタグで囲む -->
+<!-- はじめの<!DOCTYPE html>はおまじないみたいなものやから考えずにやる -->
+
+<!DOCTYPE html>
+
+<!-- 言語設定　lang="ja" -->
+<html lang="ja">
+
+
+<!-- headタグの中にサイト情報を入れる。 サイト名や、説明、css インポートもここ-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- BootStrapCSSのCDN。自前のCSSよりも先にインポートするのがコツ -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- CSSのインポート -->
+  <link rel="stylesheet" href="./css/main.css">
+
+
+  <title>サイト名</title>
+</head>
+
+
+<!-- bodyはサイトの見える部分を各 -->
+<body class="bg-grey">
+  <!-- 全体をclass=containerで囲むとそれだけでいい感じに余白ができる -->
+  <!-- roundedは角を丸くするやつ, shadowは影。それぞれbootstrapの機能 -->
+  <div class="container bg-white rounded shadow mt-5">
+    <div class="text-center row p-3">
+      <h2 class="text-center">JS勉強しろ</h2>
+    </div>
+
+    <!-- ここからリスト -->
+    <!-- list-parentというidをつけてjs側から読み取りやすく -->
+    <ul id="list-parent" class="list-group">
+      <li class="list-group-item d-flex">1</li>
+    </ul>
+
+    <div class="text-center mt-3 pb-3">
+      <!-- 要素の中にonclick="関数名"とかくとそれが押された時に実行する関数を設定できる -->
+      <button id="add-btn" onclick="addList()" class="btn btn-primary">追加</button>
+      <button id="delete-btn" disabled onclick="deleteList()" class="btn btn-danger">削除</button>
+    </div>
+  </div>
+
+  <!-- ここに追加する要素を作ってdisplay-noneを当てとく -->
+  <li id="list-template" class="list-group-item" style="display: none;"></li>
+
+  <!-- BootStrapJSのCDN。自前のJSよりも先にインポートするのがコツ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
